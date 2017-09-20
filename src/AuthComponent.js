@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 class AuthComponent extends Component {
 
   onSubmitClick = () => {
-    this.props.store.set(this.props.eventOnSubmit, {'user': this.refs.email.getValue(), 'password': this.refs.password.getValue()})
+    this.props.store.set(this.props.eventOnSubmit, {'email': this.refs.email.getValue(), 'password': this.refs.password.getValue()})
   } 
 
   render() {
