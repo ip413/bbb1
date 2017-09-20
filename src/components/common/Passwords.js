@@ -44,23 +44,23 @@ class Passwords extends Component {
   render() {
     return (
       <div>
-      <div className="row">
-        <div className="col-xs-12 center">
-          <div className="control-group">
-            <TextField hintText="Password" ref="password1"
-              onChange={(e) => {this.setState({'password1': e.target.value})}}
-              value={this.state.password1}
-              floatingLabelText="Password"
-              type="password" /><br />
-            <TextField hintText="Repeat password" ref="password2"
-              onChange={(e) => {this.setState({'password2': e.target.value})}}
-              value={this.state.password2}
-              floatingLabelText="Repeat password"
-              type="password" /><br />
+        <div className="row">
+          <div className="col-xs-12 center">
+            <div className="control-group">
+              <TextField hintText="Password" ref="password1"
+                onChange={(e) => {this.setState({'password1': e.target.value})}}
+                value={this.state.password1}
+                floatingLabelText="Password"
+                type="password" /><br />
+              <TextField hintText="Repeat password" ref="password2"
+                onChange={(e) => {this.setState({'password2': e.target.value})}}
+                value={this.state.password2}
+                floatingLabelText="Repeat password"
+                type="password" /><br />
+            </div>
+            <RaisedButton label="Send" onClick={this.onSubmitClick} />
           </div>
-          <RaisedButton label="Send" onClick={this.onSubmitClick} />
         </div>
-      </div>
       </div>
     );
   }
