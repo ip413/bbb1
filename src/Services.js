@@ -19,14 +19,25 @@ class Services {
   }
 
   addListeners(){
-    this.store.addListener('signup', this.signUp);
+    this.store.addListener('signUp', this.signUp);
+    this.store.addListener('logIn', this.logIn);
   }
 
-  signUp = (signup) => {
-    firebase.auth().createUserWithEmailAndPassword(signup.email, signup.password).then(user => {
-       this.store.set('alert', {message: `User with email "${user.email}" has been created`, type: 'success', action: 'signup'});
+  signUp = (user) => {
+    firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(user => {
+       this.store.set('alert', {message: `User with email "${user.email}" has been created`, type: 'success', action: 'signUp'});
     }).catch(error => {
-      this.store.set('alert', {message: error.message, type: 'error', action: 'signup'});
+      this.store.set('alert', {message: error.message, type: 'error', action: 'signUp'});
+    });
+  }
+
+  logIn = (user) => {
+    console.log("log in service");
+    firebase.auth().signInWithEmailAndPassword(user.email, user.password).then(user => {
+      this.store.set('alert', {message: 'You are logged in', type: 'success', action: 'logIn'});
+      this.store.set('loggedIn', true);
+    }).catch(error => {
+      this.store.set('alert', {message: error.message, type: 'error', action: 'logIn'});
     });
   }
 

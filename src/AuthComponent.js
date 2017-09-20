@@ -24,6 +24,7 @@ class AuthComponent extends Component {
   }
 
   onSubmitClick = () => {
+    console.log("click", this.props.eventOnSubmit)
     this.props.store.set(this.props.eventOnSubmit, {'email': this.refs.email.getValue(), 'password': this.refs.password.getValue()})
   } 
 

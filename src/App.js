@@ -1,25 +1,23 @@
+import Alert from './Alert';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Navbar from './Navbar';
 import React, { Component } from 'react';
-import Sieds from 'sieds';
-import SignUp from './SignUp';
-import Tab from 'material-ui/Tabs/Tab';
-import Tabs from 'material-ui/Tabs/Tabs';
 import Services from './Services';
-import Alert from './Alert';
+import Sieds from 'sieds';
 
 const theme = getMuiTheme();
-const store = new Sieds({signup: {}, alert: {}});
+const store = new Sieds({signUp: {}, alert: {}, logIn: {}, loggedIn: false});
 const services = new Services(store);
-// store.set({'signup': {}});
 
 class App extends Component {
   constructor(props) {
     super(props);
     // console.log("xx", store.get())
-    console.log("xx", store.get())
+    // console.log("xx", store.get())
 
-    store.addListener('signup', (value) => {console.log('signup', value, store.get())})
+    store.addListener('signUp', (value) => {console.log('signUp', value, store.get())})
+    store.addListener('loggedIn', () => {this.forceUpdate()}); // showing menu for logged user
   }
 
   render() {
@@ -28,12 +26,7 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <Tabs>
-                <Tab label="Sign up"><SignUp store={store} /></Tab>
-                <Tab label="Log in"></Tab>
-                <Tab label="Change Password"></Tab>
-                <Tab label="Log out" className="danger-background"></Tab>
-              </Tabs>
+              <Navbar store={store} />
               <Alert store={store} />
             </div>
           </div>
