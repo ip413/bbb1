@@ -24,11 +24,9 @@ class Services {
 
   signUp = (signup) => {
     firebase.auth().createUserWithEmailAndPassword(signup.email, signup.password).then(user => {
-       console.log("new user", signup, user);
-       this.store.set('auth', user.email);
+       this.store.set('alert', {message: `User with email "${user.email}" has been created`, title: 'Success'});
     }).catch(error => {
-      console.log("new user error", error)
-      throw(error);
+      this.store.set('alert', {message: `${error.message}`, title: 'Error'});
     });
   }
 

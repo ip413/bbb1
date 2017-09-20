@@ -6,9 +6,10 @@ import SignUp from './SignUp';
 import Tab from 'material-ui/Tabs/Tab';
 import Tabs from 'material-ui/Tabs/Tabs';
 import Services from './Services';
+import Alert from './Alert';
 
 const theme = getMuiTheme();
-const store = new Sieds({'signup': {}});
+const store = new Sieds({signup: {}, alert: {}});
 const services = new Services(store);
 // store.set({'signup': {}});
 
@@ -33,6 +34,7 @@ class App extends Component {
                 <Tab label="Change Password"></Tab>
                 <Tab label="Log out" className="danger-background"></Tab>
               </Tabs>
+              <Alert store={store} />
             </div>
           </div>
         </div>
