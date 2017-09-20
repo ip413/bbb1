@@ -6,6 +6,8 @@ npm install
 npm start
 ```
 
+![](screen.png)
+
 ## Overview
 
 UI based on Material-UI.
