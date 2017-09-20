@@ -25,10 +25,8 @@ export default class Alert extends React.Component {
     switch(this.props.store.get('alert').type) {
       case 'error':
         return 'Error';
-        break;
       case 'success':
         return 'Success';
-        break;
       default:
         return '';
     }
@@ -36,12 +34,7 @@ export default class Alert extends React.Component {
 
   render() {
     const actions = [
-      <FlatButton
-        label="OK"
-        primary={true}
-        keyboardFocused={true}
-        onClick={this.onAlertClose}
-      />,
+      <FlatButton label="OK"primary={true} keyboardFocused={true} onClick={this.onAlertClose} />,
     ];
 
     return (

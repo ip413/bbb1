@@ -14,9 +14,7 @@ class Passwords extends Component {
   }
 
   onAlertSet = (alert) => {
-    console.log("on password change", alert, this.props.eventOnSubmit);
     if (alert.action === this.props.eventOnSubmit) {
-      console.log("on password change2", alert);
       this.clearFormValues();
     }
   }
@@ -37,7 +35,11 @@ class Passwords extends Component {
     if (this.state.password1 === this.state.password2) {
       this.props.store.set(this.props.eventOnSubmit, this.state.password1);
     }
-  } 
+  }
+
+  componentWillUnmount() {
+    this.props.store.removeListener('alert', this.onAlertSet);
+  }
 
   render() {
     return (

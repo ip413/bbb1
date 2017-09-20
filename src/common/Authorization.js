@@ -24,9 +24,12 @@ class Authorization extends Component {
   }
 
   onSubmitClick = () => {
-    console.log("click", this.props.eventOnSubmit)
     this.props.store.set(this.props.eventOnSubmit, {'email': this.refs.email.getValue(), 'password': this.refs.password.getValue()})
-  } 
+  }
+
+  componentWillUnmount() {
+    this.props.store.removeListener('alert', this.onAlertSet);
+  }
 
   render() {
     return (
