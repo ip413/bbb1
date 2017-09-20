@@ -18,7 +18,7 @@ class Auth {
     });
   }
 
-  addListeners (){
+  addListeners() {
     this.store.addListener('logIn', this.logIn);
     this.store.addListener('newPassword', this.newPassword);
     this.store.addListener('signUp', this.signUp);
@@ -26,23 +26,19 @@ class Auth {
   }
 
   logOut = () => {
-    const self = this;
-    
-    firebase.auth().signOut().then(function() {
-      self.store.set('loggedIn', false);
-      self.store.set('alert', {message: 'You are logged out', type: 'success', action: 'newPassword'});
+    firebase.auth().signOut().then(() => {
+      this.store.set('loggedIn', false);
+      this.store.set('alert', {message: 'You are logged out', type: 'success', action: 'newPassword'});
     }).catch(function(error) {
-      self.store.set('alert', {message: error.message, type: 'error', action: 'newPassword'});
+      this.store.set('alert', {message: error.message, type: 'error', action: 'newPassword'});
     });
   }
 
   newPassword = (newPassword) => {
-    const self = this;
-
-    firebase.auth().currentUser.updatePassword(newPassword).then(function() {
-      self.store.set('alert', {message: 'Password has been changed successfully', type: 'success', action: 'newPassword'});
+    firebase.auth().currentUser.updatePassword(newPassword).then(() => {
+      this.store.set('alert', {message: 'Password has been changed successfully', type: 'success', action: 'newPassword'});
     }).catch(function(error) {
-      self.store.set('alert', {message: error.message, type: 'error', action: 'newPassword'});
+      this.store.set('alert', {message: error.message, type: 'error', action: 'newPassword'});
     });
   }
 
@@ -62,6 +58,6 @@ class Auth {
       this.store.set('alert', {message: error.message, type: 'error', action: 'logIn'});
     });
   }
-
 }
+
 export default Auth;
