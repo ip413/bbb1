@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-class Services {
+class Auth {
   store = null;
 
   constructor(store) {
@@ -64,4 +64,4 @@ class Services {
   }
 
 }
-export default Services;
+export default Auth;

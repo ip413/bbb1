@@ -1,5 +1,5 @@
-import Authorization from './common/Authorization';
-import Passwords from './common/Passwords';
+import Authorization from '../common/Authorization';
+import Passwords from '../common/Passwords';
 import React, {Component} from 'react';
 import Tab from 'material-ui/Tabs/Tab';
 import Tabs from 'material-ui/Tabs/Tabs';
