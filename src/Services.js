@@ -19,8 +19,23 @@ class Services {
   }
 
   addListeners(){
-    this.store.addListener('signUp', this.signUp);
     this.store.addListener('logIn', this.logIn);
+    this.store.addListener('newPassword', this.newPassword);
+    this.store.addListener('signUp', this.signUp);
+  }
+
+  newPassword = (newPassword) => {
+    console.log("update pass", newPassword)
+    const self = this;
+
+    firebase.auth().currentUser.updatePassword(newPassword).then(function() {
+      // Update successful.
+      console.log("new pass success");
+      self.store.set('alert', {message: 'Password has been changed successfully', type: 'success', action: 'newPassword'});
+    }).catch(function(error) {
+      console.log("new pass error", error);
+      self.store.set('alert', {message: error.message, type: 'error', action: 'newPassword'});
+    });
   }
 
   signUp = (user) => {

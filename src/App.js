@@ -7,7 +7,7 @@ import Services from './Services';
 import Sieds from 'sieds';
 
 const theme = getMuiTheme();
-const store = new Sieds({signUp: {}, alert: {}, logIn: {}, loggedIn: false});
+const store = new Sieds({signUp: {}, alert: {}, logIn: {}, loggedIn: false, newPassword: null});
 const services = new Services(store);
 
 class App extends Component {
