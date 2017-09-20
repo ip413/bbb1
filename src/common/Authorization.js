@@ -2,7 +2,7 @@ import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
-class AuthComponent extends Component {
+class Authorization extends Component {
   state = {
     email: '',
     password: ''
@@ -50,4 +50,4 @@ class AuthComponent extends Component {
   }
 }
 
-export default AuthComponent;
+export default Authorization;

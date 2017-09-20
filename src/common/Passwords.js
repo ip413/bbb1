@@ -2,7 +2,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 
-class ChangePassword extends Component {
+class Passwords extends Component {
   state = {
     password1: '',
     password2: ''
@@ -64,4 +64,4 @@ class ChangePassword extends Component {
   }
 }
 
-export default ChangePassword;
+export default Passwords;
