@@ -1,5 +1,4 @@
 import AuthComponent from './AuthComponent';
-// import React, {Component} from 'react';
 import React, { Component } from 'react';
 
 

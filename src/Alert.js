@@ -28,6 +28,19 @@ export default class Alert extends React.Component {
     this.setState({open: false});
   };
 
+  getTitle() {
+    switch(this.props.store.get('alert').type) {
+      case 'error':
+        return 'Error';
+        break;
+      case 'success':
+        return 'Success';
+        break;
+      default:
+        return '';
+    }
+  }
+
   render() {
     const actions = [
       <FlatButton
@@ -43,7 +56,7 @@ export default class Alert extends React.Component {
 
         <Dialog
           className={this.props.store.get('alert').title === 'Error' ? 'danger-background' : ''}
-          title={this.props.store.get('alert').title}
+          title={this.getTitle()}
           actions={actions}
           modal={false}
           open={this.state.open}
